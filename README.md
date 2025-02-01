@@ -25,6 +25,7 @@ npm install vue-router@4
 npm install tailwindcss @tailwindcss/vite
 npm install bootstrap @popperjs/core
 npm install bootstrap@5.3.3
+npm install @heroicons/vue
 ```
 
 
