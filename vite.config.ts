@@ -2,6 +2,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,4 +35,12 @@ export default defineConfig({
       type: 'module',
     },
   })],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // ⬅️ Définition de l'alias @
+    },
+  },
+  css: {
+    postcss: '@/postcss.config.ts',
+  }
 })

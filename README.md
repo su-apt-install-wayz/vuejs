@@ -26,6 +26,8 @@ npm install tailwindcss @tailwindcss/vite
 npm install bootstrap @popperjs/core
 npm install bootstrap@5.3.3
 npm install @heroicons/vue
+npm install flowbite
+npm install postcss autoprefixer
 ```
 
 
@@ -63,6 +65,43 @@ Modifier le fichier App.vue
 <script setup>
 import { RouterView } from 'vue-router';
 </script>
+```
+
+Créer le fichier postcss.config.ts
+
+```ts
+export default {
+  plugins: {
+    autoprefixer: {},
+  },
+};
+```
+
+Ajouter au vite.config.ts
+
+```ts
+import path from 'path';
+
+...
+
+resolve: {
+  alias: {
+    '@': path.resolve(__dirname, 'src'), // ⬅️ Définition de l'alias @
+  },
+},
+css: {
+  postcss: '@/postcss.config.ts',
+}
+```
+
+
+Ajouter à tsconfig.app.json
+
+```json
+"baseUrl": ".",
+  "paths": {
+    "@/*": ["src/*"]
+  }
 ```
 
 Pages : Créer Home.vue et Login.vue dans le dossier views.
